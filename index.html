@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title></title>
+    
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ОСНОВНОЙ ЛЕНДИНГ (ПОКАЗЫВАЕТСЯ ТОЛЬКО ЕСЛИ УКАЗАН GET-ПАРАМЕТР ?salon=...) -->
+    <div id="landingApp" style="display: none;">
+        <!-- NAVIGATION -->
+        <header class="nav-header">
+            <div class="container">
+                <div class="nav-inner">
+                    <a href="#hero" class="brand-logo">
+                        <div class="brand-monogram" id="brandMonogram">М</div>
+                        <div class="brand-text">
+                            <span class="brand-title" id="brandNameText">Магия</span>
+                            <div class="brand-meta">
+                                <span id="brandCityText">г. Канаш</span>
+                                <span class="meta-dot">•</span>
+                                <span class="brand-badge-tag" id="brandSuffixText">Beauty</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <nav class="nav-links">
+                        <a href="#philosophy">Концепция</a>
+                        <a href="#planner">Конструктор</a>
+                        <a href="#gallery">Атмосфера</a>
+                        <a href="#reviews">Отзывы</a>
+                        <a href="#contacts">Контакты</a>
+                    </nav>
+
+                    <div class="nav-cta">
+                        <a href="tel:+78353342363" class="nav-phone" id="navPhoneLink" title="Позвонить в салон">
+                            <span class="phone-icon">📞</span>
+                            <span class="phone-text" id="navPhoneNum">+7 (83533) 4-23-63</span>
+                        </a>
+                        <a href="#planner" class="btn-editorial btn-primary nav-book-btn">Собрать визит</a>
+                    </div>
+
+                    <!-- Мобильная кнопка меню (гамбургер) -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть навигацию" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Выпадающее мобильное меню -->
+            <div class="mobile-nav-drawer" id="mobileNavDrawer">
+                <div class="mobile-nav-links">
+                    <a href="#philosophy" onclick="closeMobileMenu()">Концепция & Стандарты</a>
+                    <a href="#planner" onclick="closeMobileMenu()">Конструктор визита (–10%)</a>
+                    <a href="#gallery" onclick="closeMobileMenu()">Атмосфера салона</a>
+                    <a href="#reviews" onclick="closeMobileMenu()">Отзывы с Яндекс Карт</a>
+                    <a href="#contacts" onclick="closeMobileMenu()">Контакты & Локация</a>
+                </div>
+                <div class="mobile-nav-footer">
+                    <a href="tel:+78353342363" class="mobile-nav-phone" id="mobileNavPhoneLink">📞 +7 (83533) 4-23-63</a>
+                    <a href="#planner" class="btn-editorial btn-primary" onclick="closeMobileMenu()" style="width: 100%; text-align: center;">Собрать свой визит</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-copy">
+                        <div class="editorial-label" id="heroLabel">Салон красоты «Магия» • г. Канаш</div>
+                        <h2 id="heroHeading">Истинная магия ухода, <span class="serif-italic">раскрывающая вас</span></h2>
+                        <p class="lead" id="heroLead">Пространство персональной эстетики и бережного ухода в Канаше.</p>
+                        
+                        <div class="hero-highlights" id="heroHighlights">
+                            <div class="highlight-item">
+                                <span class="highlight-dot">✦</span>
+                                <span>Сложная колористика & умные стрижки</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-dot">✦</span>
+                                <span>Аппаратный маникюр & SMART-педикюр</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-dot">✦</span>
+                                <span>Эстетическая косметология и уход</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <a href="#planner" class="btn-editorial btn-primary">Конструктор визита</a>
+                            <a href="#contacts" class="btn-editorial btn-outline">Контакты и локация</a>
+                        </div>
+
+                        <div class="hero-trust-bar">
+                            <div class="trust-item">
+                                <div class="trust-badge-icon">⭐</div>
+                                <div class="trust-text">
+                                    <div class="val" id="trustRating">4.7 из 5.0</div>
+                                    <div class="desc" id="trustReviews">56 отзывов на Яндекс Картах</div>
+                                </div>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-badge-icon">🌿</div>
+                                <div class="trust-text">
+                                    <div class="val">Премиум космецевтика</div>
+                                    <div class="desc">Сертифицированные составы</div>
+                                </div>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-badge-icon">✨</div>
+                                <div class="trust-text">
+                                    <div class="val">Безопасность 100%</div>
+                                    <div class="desc">Стерилизация по СанПиН</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-media-wrapper">
+                        <!-- Динамическое фото студии -->
+                        <img src="assets/illustrations/gallery_hair.jpg" alt="Интерьер салона" class="hero-main-img" id="heroMainImg">
+                        <div class="hero-float-card">
+                            <span class="pill">Удобная локация</span>
+                            <h4 id="floatCardLocation">г. Канаш, ул. Машиностроителей, 9</h4>
+                            <p>Уютная лаунж-зона, зерновой кофе и индивидуальный график приема без очередей.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY / STANDARDS -->
+        <section class="philosophy-section" id="philosophy">
+            <div class="container">
+                <div class="section-header">
+                    <div class="editorial-label">Наши стандарты</div>
+                    <h2>Философия бережного <span class="serif-italic">результата</span></h2>
+                    <p>Мы создали пространство, куда приходят за спокойствием, заботой о здоровье и предсказуемо высоким качеством каждой процедуры.</p>
+                </div>
+
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <span class="num-mark">01</span>
+                        <h3>Медицинская стерилизация</h3>
+                        <p>Трехэтапная стерилизация инструмента в сухожаровом шкафу медицинского класса. Индивидуальный крафт-пакет вскрывается исключительно в вашем присутствии.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <span class="num-mark">02</span>
+                        <h3>Космецевтика мирового уровня</h3>
+                        <p>Никаких сомнительных аналогов. Мы работаем только с официальными дистрибьюторами профессиональных брендов для волос, кожи и ногтевой пластины.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <span class="num-mark">03</span>
+                        <h3>Забота о вашем времени</h3>
+                        <p>Возможность параллельных услуг в 4 руки: маникюр + педикюр или окрашивание + оформление бровей для тех, кто ценит каждую минуту дня.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             ОРИГИНАЛЬНЫЙ БЛОК: ИНТЕРАКТИВНЫЙ КОНСТРУКТОР ВИЗИТА
+             ======================================================== -->
+        <section class="planner-section" id="planner">
+            <div class="container">
+                <div class="section-header">
+                    <div class="editorial-label">Авторский сервис</div>
+                    <h2>Соберите свой <span class="serif-italic">идеальный визит</span></h2>
+                    <p>Выберите желаемые услуги, посмотрите точное расчетное время и стоимость со скидкой 10% на первый визит. Бронирование мгновенно отправляется вашему мастеру в WhatsApp или Telegram.</p>
+                </div>
+
+                <div class="planner-container">
+                    <div class="planner-layout">
+                        <!-- Выбор услуг -->
+                        <div class="planner-picker">
+                            <div class="planner-categories" id="plannerCategoryTabs">
+                                <button class="planner-tab active" onclick="switchPlannerTab('ALL')">Все услуги</button>
+                                <button class="planner-tab" onclick="switchPlannerTab('HAIR')">Волосы</button>
+                                <button class="planner-tab" onclick="switchPlannerTab('NAILS')">Ногти & Педикюр</button>
+                                <button class="planner-tab" onclick="switchPlannerTab('FACE')">Лицо & Взгляд</button>
+                                <button class="planner-tab" onclick="switchPlannerTab('BODY')">Тело & Релакс</button>
+                            </div>
+
+                            <div class="services-picker-grid" id="servicesPickerList">
+                                <!-- Заполняется динамически -->
+                            </div>
+                        </div>
+
+                        <!-- Чек визита -->
+                        <div class="planner-receipt">
+                            <div class="receipt-header">
+                                <h3 id="receiptSalonTitle">Beauty Ritual</h3>
+                                <p>Рецепт персонального ухода</p>
+                            </div>
+
+                            <div class="receipt-items-list" id="receiptItemsList">
+                                <div class="receipt-empty-msg">Кликните на интересующие процедуры слева, чтобы сформировать программу визита со скидкой 10%</div>
+                            </div>
+
+                            <div class="receipt-totals">
+                                <div class="total-line">
+                                    <span>Расчетное время:</span>
+                                    <strong id="totalDurationText">0 мин</strong>
+                                </div>
+                                <div class="total-line">
+                                    <span>Стоимость процедур:</span>
+                                    <span id="subtotalPriceText">0 ₽</span>
+                                </div>
+                                <div class="total-line">
+                                    <span>Скидка 10% (первый визит):</span>
+                                    <span class="discount-badge" id="discountText">-0 ₽</span>
+                                </div>
+                                <div class="total-line final">
+                                    <span>Итого к оплате:</span>
+                                    <span class="sum" id="finalPriceText">0 ₽</span>
+                                </div>
+                            </div>
+
+                            <div class="booking-concierge-btns">
+                                <a href="#" target="_blank" class="btn-wa-book" id="bookWhatsAppBtn" onclick="sendBooking('WA')">
+                                    💬 Забронировать в WhatsApp
+                                </a>
+                                <a href="#" target="_blank" class="btn-tg-book" id="bookTelegramBtn" onclick="sendBooking('TG')">
+                                    ✈️ Забронировать в Telegram
+                                </a>
+                            </div>
+                            <p style="text-align: center; font-size: 0.74rem; color: var(--text-muted); margin-top: 10px;">Бронь без предоплаты. Администратор подтвердит время за 5 минут.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATMOSPHERE GALLERY -->
+        <section class="gallery-section" id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <div class="editorial-label">Эстетика пространства</div>
+                    <h2>Атмосфера заботы и <span class="serif-italic">комфорта</span></h2>
+                    <p>Мы продумали каждый сантиметр интерьера: правильный анатомический свет, мягкие кресла и чашка свежесваренного кофе.</p>
+                </div>
+
+                <!-- Динамическая галерея студии -->
+                <div class="gallery-asymmetric-grid" id="galleryGridContainer">
+                    <!-- Заполняется динамически -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VERIFIED REVIEWS -->
+        <section class="reviews-section" id="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <div class="yandex-badge-header">
+                        <span style="color:#d97706; font-weight:700;">⭐ Яндекс Карты</span>
+                        <span style="color:var(--text-secondary); font-size:0.85rem;">Официальные верифицированные отзывы</span>
+                    </div>
+                    <h2>Что говорят наши <span class="serif-italic">гости</span></h2>
+                </div>
+
+                <div class="reviews-slider-grid" id="reviewsContainer">
+                    <!-- Заполняется динамически -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTS & EXACT MAP PIN -->
+        <section class="contacts-section" id="contacts">
+            <div class="container">
+                <div class="contacts-grid">
+                    <div class="contacts-details">
+                        <div class="editorial-label">Ждем вас в гости</div>
+                        <h2>Контакты и <span class="serif-italic">локация</span></h2>
+                        
+                        <div class="contacts-info-list">
+                            <div class="contact-entry">
+                                <span class="contact-entry-icon">📍</span>
+                                <div class="contact-entry-text">
+                                    <div class="label">Наш адрес</div>
+                                    <div class="val" id="contactAddressVal">г. Канаш, ул. Машиностроителей, 9</div>
+                                </div>
+                            </div>
+
+                            <div class="contact-entry">
+                                <span class="contact-entry-icon">📞</span>
+                                <div class="contact-entry-text">
+                                    <div class="label">Телефон для записи</div>
+                                    <div class="val"><a href="tel:+78353342363" id="contactPhoneVal">+7 (83533) 4-23-63</a></div>
+                                </div>
+                            </div>
+
+                            <div class="contact-entry">
+                                <span class="contact-entry-icon">🕒</span>
+                                <div class="contact-entry-text">
+                                    <div class="label">Режим работы</div>
+                                    <div class="val" id="contactHoursVal">Пн-Сб: 08:30 — 19:30, Вс: 09:00 — 18:00</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                            <a href="https://wa.me/79662494003" target="_blank" class="btn-editorial btn-primary" id="footerWaBtn">Написать в WhatsApp</a>
+                            <a href="https://yandex.ru/maps/org/133452322882" target="_blank" class="btn-editorial btn-outline" id="footerYmBtn">Маршрут на Яндекс Картах</a>
+                        </div>
+                    </div>
+
+                    <!-- ТОЧНАЯ МЕТКА НА КАРТЕ ЧЕРЕЗ ЯНДЕКС MAP WIDGET -->
+                    <div class="map-frame-box">
+                        <iframe id="yandexMapIframe" src="" allowfullscreen="true" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-logo">
+                        <h3 id="footerBrandName">Салон красоты «Магия»</h3>
+                        <p id="footerTagline">Пространство преображения в Канаше на Машиностроителей, 9. Авторский уход с заботой о здоровье и красоте.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Навигация</h5>
+                        <ul>
+                            <li><a href="#hero">Главная</a></li>
+                            <li><a href="#philosophy">Концепция</a></li>
+                            <li><a href="#planner">Конструктор визита</a></li>
+                            <li><a href="#gallery">Галерея студии</a></li>
+                            <li><a href="#contacts">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Контакты</h5>
+                        <ul>
+                            <li id="footerCityLine">г. Канаш, ул. Машиностроителей, 9</li>
+                            <li><a href="tel:+78353342363" id="footerPhoneLine">+7 (83533) 4-23-63</a></li>
+                            <li>Запись 7 дней в неделю</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div>© 2026 <span id="copyrightName">Салон красоты «Магия»</span>. Все права защищены.</div>
+                    <div id="footerBottomAddress">г. Канаш • ул. Машиностроителей, 9</div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- MOBILE STICKY BAR -->
+        <div class="mobile-booking-bar">
+            <div class="mobile-bar-inner">
+                <a href="#planner" class="btn-call">Собрать визит</a>
+                <a href="https://wa.me/79662494003" target="_blank" class="btn-wa" id="mobileWaBtn">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
